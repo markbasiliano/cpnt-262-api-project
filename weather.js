@@ -21,6 +21,9 @@ weatherForm.addEventListener("submit", async event => {
         try{
             const weatherData = await getWeatherData(city);
             displayWeatherInfo(weatherData);
+
+            // save weather data to local storage. using json stringinfy api.
+            localStorage.setItem("weatherData", JSON.stringify(weatherData));
         }
         catch(error){
             console.log(error);
@@ -118,3 +121,13 @@ function displayError(message){
     card.appendChild(errorDisplay);
 
 }
+
+// loads the saved data even after page is refreshed. needed json parse to read my data.
+document.addEventListener("DOMContentLoaded", () => {
+    const savedWeatherData = localStorage.getItem("weatherData");
+
+    if (savedWeatherData) {
+        const weatherData = JSON.parse(savedWeatherData);
+        displayWeatherInfo(weatherData);
+    }
+});
