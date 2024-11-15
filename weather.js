@@ -1,10 +1,17 @@
 // WEATHER APP
 
+// Declare my variables. Use query selector cuz I not using Id.
+
+// targets the weather form in html
 const weatherForm = document.querySelector(".weatherForm");
+// targets input element
 const cityInput = document.querySelector(".cityInput");
+// targets the div element
 const card = document.querySelector(".card");
+// api key from open weather
 const apiKey = "ce1fa0c5ea3c4c19dd18692121c1b2a9";
 
+// Submit form
 weatherForm.addEventListener("submit", async event => {
     event.preventDefault();
 
@@ -25,6 +32,7 @@ weatherForm.addEventListener("submit", async event => {
     }
 });
 
+// fetch weather data from the api call
 async function getWeatherData(city) {
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
@@ -38,6 +46,7 @@ async function getWeatherData(city) {
     return await response.json();
 }
 
+// create content for the div element. Use data destructuring.
 function displayWeatherInfo(data){
     const {name: city, main: {temp, humidity}, weather: [{description, id}]} = data;
 
@@ -69,6 +78,7 @@ function displayWeatherInfo(data){
     card.appendChild(weatherEmoji);
 }
 
+// get weather conditions based on the condition codes provided in open weather. then insert emoji accordingly.
 function getWeatherEmoji(weatherId){
     switch(true){
         case(weatherId >= 200 && weatherId < 300):
@@ -97,6 +107,7 @@ function getWeatherEmoji(weatherId){
     }
 }
 
+// display error
 function displayError(message){
     const errorDisplay = document.createElement("p");
     errorDisplay.textContent = message;
