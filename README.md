@@ -1,10 +1,10 @@
 # Weather Dashboard Project
 
 ## API Key
-https://openweathermap.org/
+[API KEY](https://openweathermap.org/)
 
 ## API Call
-https://openweathermap.org/current
+[API CALL](https://openweathermap.org/current)
 
 ## Emoji Ids
-https://openweathermap.org/weather-conditions
+[Weather Condition Codes](https://openweathermap.org/weather-conditions)
