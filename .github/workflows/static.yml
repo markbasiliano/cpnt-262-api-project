@@ -32,7 +32,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Replace API Key Placeholder
-        run: sed -i 's/__API_KEY__/${{ secrets.API_KEY }}/' script.js
+        run: sed -i 's/__API_KEY__/${{ secrets.API_KEY }}/' weather.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
