@@ -1,4 +1,4 @@
-// WEATHER APP
+// WEATHER DASHBOARD
 
 // Declare my variables. Use query selector cuz I not using Id.
 
